@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery, selectSearchQuery } from '../utils/searchSlice';
 import useProducts from '../utils/useProducts';
 import ProductItem from './ProductItem';
+import "./ProductList.css"
 
 function ProductList() {
   // We get our products, loading status, and errors from our custom hook

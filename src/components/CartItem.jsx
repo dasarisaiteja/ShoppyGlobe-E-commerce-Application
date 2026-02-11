@@ -1,28 +1,26 @@
 import { useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity } from '../utils/cartSlice';
+import './CartItem.css';
 
-// Using props as the parameter so we can see where the data comes from
 function CartItem(props) {
   const dispatch = useDispatch();
-  
-  // Making a simple variable for our item
   const myItem = props.item;
 
+  // Function to increase quantity
   function plusOne() {
     const newNumber = myItem.quantity + 1;
     dispatch(updateQuantity({ id: myItem.id, quantity: newNumber }));
   }
 
+  // Function to decrease quantity (preventing going below 1)
   function minusOne() {
     if (myItem.quantity > 1) {
       const newNumber = myItem.quantity - 1;
       dispatch(updateQuantity({ id: myItem.id, quantity: newNumber }));
-    } else {
-      alert("You must have at least 1 item in the cart!");
     }
   }
 
-  //  This function removes the item completely
+  // Function to remove item from cart
   function deleteItem() {
     dispatch(removeFromCart(myItem.id));
   }
@@ -31,41 +29,47 @@ function CartItem(props) {
   const itemTotalPrice = myItem.price * myItem.quantity;
 
   return (
-    <div className="cart-row">
+    <div className="cart-item">
       {/* Product Image */}
       <img 
         src={myItem.thumbnail} 
-        alt="cart-product"
-        className="row-img"
-        style={{ width: "80px" }}
+        alt={myItem.title}
+        className="cart-item-image"
       />
       
-      <div className="row-info">
+      {/* Product Details */}
+      <div className="cart-item-details">
         <h3>{myItem.title}</h3>
-        <p>Price: ${myItem.price}</p>
+        <p className="cart-item-price">Price: ${myItem.price}</p>
       </div>
 
-      <div className="quantity-controls">
-        {/* Decrease Button */}
-        <button onClick={minusOne} className="minus-btn">
+      {/* Quantity Controls */}
+      <div className="cart-item-quantity">
+        <button 
+          onClick={minusOne} 
+          className="quantity-btn"
+          disabled={myItem.quantity <= 1}
+        >
           -
         </button>
         
-        <span className="number-box">
+        <span className="quantity-display">
           {myItem.quantity}
         </span>
         
-        {/* Increase Button */}
-        <button onClick={plusOne} className="plus-btn">
+        <button onClick={plusOne} className="quantity-btn">
           +
         </button>
       </div>
 
-      <div className="row-final-price">
-        <p><b>Total: ${itemTotalPrice}</b></p>
+      {/* Pricing and Actions */}
+      <div className="cart-item-total">
+        <p className="item-total">
+          Total: ${itemTotalPrice.toFixed(2)}
+        </p>
         
-        <button onClick={deleteItem} className="delete-btn">
-          Delete
+        <button onClick={deleteItem} className="remove-btn">
+          Remove
         </button>
       </div>
     </div>

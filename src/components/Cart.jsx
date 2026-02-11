@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectCartItems, selectCartTotalPrice } from '../utils/cartSlice';
 import CartItem from './CartItem';
+import './Cart.css';
 
 
 const Cart = () => {
