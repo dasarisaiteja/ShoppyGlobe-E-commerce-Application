@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-// useParams helps us get the ID from the URL bar
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../utils/cartSlice';
 import './ProductDetails.css';
 
 function ProductDetail() {
-  // We get the ID of the product from the route
   const params = useParams();
   const productId = params.id;
   
@@ -20,7 +18,6 @@ function ProductDetail() {
 
   // This runs as soon as the page opens
   useEffect(function() {
-    // Beginners often use the .then() syntax because it's taught first
     fetch("https://dummyjson.com/products/" + productId)
       .then(function(response) {
         return response.json();
@@ -33,7 +30,7 @@ function ProductDetail() {
         setErrorMessage("Could not find product details.");
         setIsLoading(false);
       });
-  }, [productId]); // If the ID changes, fetch again
+  }, [productId]); 
 
   // Function to add item to cart
   function addItemToCart() {
@@ -75,7 +72,6 @@ function ProductDetail() {
       </button>
 
       <div className="details-box">
-        {/* The Product Image */}
         <div className="image-part">
           <img 
             src={item.thumbnail} 
@@ -84,7 +80,6 @@ function ProductDetail() {
           />
         </div>
 
-        {/* The Product Info */}
         <div className="info-part">
           <h1>{item.title}</h1>
           <p><b>Category:</b> {item.category}</p>
@@ -99,7 +94,6 @@ function ProductDetail() {
 
           <p>Items left in shop: {item.stock}</p>
 
-          {/* Add to Cart Button */}
           <button 
             className="big-add-btn"
             onClick={addItemToCart}
