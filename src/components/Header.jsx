@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCartTotal } from '../utils/cartSlice';
-
+import "./Header.css"
 
 function Header() {
   // We call our selector to get the total number of items
