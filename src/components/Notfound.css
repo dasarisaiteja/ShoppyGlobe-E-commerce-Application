@@ -1,0 +1,145 @@
+.error-page-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.error-box {
+  background: white;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-box h1 {
+  font-size: 4rem;
+  color: #ff4444;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-box h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.description {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Button row */
+.button-row {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.home-button,
+.back-button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.home-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.home-button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.back-button {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.back-button:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Icon area */
+.icon-area {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.icon-area span {
+  display: block;
+  margin-bottom: 15px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.icon-area p {
+  color: #999;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .error-box {
+    padding: 40px 20px;
+  }
+
+  .error-box h1 {
+    font-size: 3rem;
+  }
+
+  .error-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .home-button,
+  .back-button {
+    width: 100%;
+  }
+}

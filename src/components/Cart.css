@@ -1,0 +1,136 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-container h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Empty cart styling */
+.empty-cart {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.empty-cart-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.empty-cart h3 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+/* Cart content layout */
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Cart summary sidebar */
+.cart-summary {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.cart-summary h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
+
+.summary-row.total {
+  border-top: 2px solid #333;
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+/* Buttons */
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #45a049;
+}
+
+.continue-shopping-btn,
+.continue-shopping-btn-secondary {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.continue-shopping-btn:hover,
+.continue-shopping-btn-secondary:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: relative;
+    top: 0;
+  }
+}
