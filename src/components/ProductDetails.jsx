@@ -35,7 +35,6 @@ function ProductDetail() {
   // Function to add item to cart
   function addItemToCart() {
     dispatch(addToCart(item));
-    alert("This product was added to your cart!");
   }
 
   // Function to go back to the home page

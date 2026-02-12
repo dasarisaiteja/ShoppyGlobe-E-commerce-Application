@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+
 import './NotFound.css';
 
 function NotFound() {
+  const location = useLocation();
   const navigate = useNavigate();
 
   // Function to take the user back to the home page
@@ -18,6 +21,7 @@ function NotFound() {
     <div className="error-page-container">
       <div className="error-box">
         <h1 style={{ fontSize: "50px", color: "red" }}>404 Error</h1>
+        <p>No match for: {location.pathname}</p>
         <h2>Oops! We can't find that page.</h2>
         
         <p className="description">

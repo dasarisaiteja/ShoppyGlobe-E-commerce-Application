@@ -9,19 +9,19 @@ const ProductList = lazy(function() {
 });
 
 const ProductDetail = lazy(function() {
-  return import('./productDetails');
+  return import('./ProductDetails');
 });
 
 const Cart = lazy(function() {
-  return import('./cart');
+  return import('./Cart');
 });
 
 const Checkout = lazy(function() {
-  return import('./checkOut');
+  return import('./CheckOut');
 });
 
 const NotFound = lazy(function() {
-  return import('./notFound');
+  return import('./NotFound');
 });
 
 const router = createBrowserRouter([
@@ -39,17 +39,17 @@ const router = createBrowserRouter([
       },
       {
         // The colon :id 
-        path: 'product/:id',
+        path: 'Product/:id',
         element: <ProductDetail />,
       },
       {
         // The shopping cart page
-        path: 'cart',
+        path: 'Cart',
         element: <Cart />,
       },
       {
         // The final checkout page
-        path: 'checkout',
+        path: 'CheckOut',
         element: <Checkout />,
       },
       {
