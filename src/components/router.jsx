@@ -24,41 +24,24 @@ const NotFound = lazy(function() {
   return import('./NotFound');
 });
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      errorElement: <NotFound />,
+      children: [
+        { index: true, element: <ProductList /> },
+        { path: 'Product/:id', element: <ProductDetail /> },
+        { path: 'Cart', element: <Cart /> },
+        { path: 'CheckOut', element: <Checkout /> },
+        { path: '*', element: <NotFound /> },
+      ],
+    },
+  ],
   {
-    // The main path starts at the root
-    path: '/',
-    element: <App />,
-    // If there is a big error, show the 404 page
-    errorElement: <NotFound />,
-    children: [
-      {
-        // the Home page
-        index: true,
-        element: <ProductList />,
-      },
-      {
-        // The colon :id 
-        path: 'Product/:id',
-        element: <ProductDetail />,
-      },
-      {
-        // The shopping cart page
-        path: 'Cart',
-        element: <Cart />,
-      },
-      {
-        // The final checkout page
-        path: 'CheckOut',
-        element: <Checkout />,
-      },
-      {
-        // The asterisk * means "anything else" 
-        path: '*',
-        element: <NotFound />,
-      },
-    ],
-  },
-]);
+    basename: '/ShoppyGlobe-E-commerce-Application',
+  }
+);
 
 export default router;
